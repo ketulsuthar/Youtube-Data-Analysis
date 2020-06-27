@@ -4,3 +4,12 @@ youtubes = LOAD 'youtube.txt' USING PigStorage('\t') as (video_id:chararray,uplo
 --describe youtubes;
 
 categorieswisedata = FOREACH youtubes GENERATE $3, 1;
+--DUMP categorieswisedata;
+
+-- Group By Category
+groupbycat = GROUP categorieswisedata BY $0;
+--DUMP groupbycat;
+
+-- Count Category data
+groupbycount = FOREACH groupbycat GENERATE group, COUNT($1);
+--DUMP groupbycount;
