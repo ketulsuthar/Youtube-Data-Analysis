@@ -15,6 +15,6 @@ top10video = LIMIT orderbyrating 10;
 --DUMP top10video;
 
 -- Store Result into file
-STORE top1pvideo INTO 'Top10RatedVideo' using PigStorage(',');
+STORE top10video INTO 'Top10RatedVideo' using PigStorage(',');
 
 
