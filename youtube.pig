@@ -23,5 +23,5 @@ top5cat = LIMIT orderbycount 5;
 --DUMP top5cat;
 
 -- Store Result into file
-STORE top5cat INTO 'Top5Category' using PigStorage('->');
+STORE top5cat INTO 'Top5Category' using PigStorage(',');
 
