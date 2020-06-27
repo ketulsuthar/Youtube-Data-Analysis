@@ -13,3 +13,14 @@ groupbycat = GROUP categorieswisedata BY $0;
 -- Count Category data
 groupbycount = FOREACH groupbycat GENERATE group, COUNT($1);
 --DUMP groupbycount;
+
+-- OrderBy data Descending Order
+orderbycount = ORDER groupbycount BY $1 DESC;
+
+-- Fetch top Five data
+top5cat = LIMIT orderbycount 5;
+--DUMP top5cat;
+
+-- Store Result into file
+STORE top5cat INTO 'Top5Category' using PigStorage('->')
+
